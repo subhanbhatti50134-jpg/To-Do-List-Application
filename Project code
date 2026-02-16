@@ -1,0 +1,76 @@
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+
+int main() {
+    vector<string> tasks;
+    int choice;
+    string task;
+    int taskNumber;
+    
+    cout << "     TO-DO LIST APPLICATION      " << endl;
+    
+    do {
+        cout << " "<<"Menu:" << endl;
+        cout << "1. Add a task" << endl;
+        cout << "2. View all tasks" << endl;
+        cout << "3. Remove a task" << endl;
+        cout << "4. Exit" << endl;
+        cout << "Enter your choice (1-4): ";
+        cin >> choice;
+        
+        switch(choice) {
+            case 1:
+                cout << "Enter the task: ";
+                cin.ignore();
+                getline(cin, task);
+                tasks.push_back(task);
+                cout << "Task added successfully!" << endl;
+                break;
+                
+            case 2:
+                if(tasks.empty()) {
+                    cout << "Your to-do list is empty!" << endl;
+                } else {
+                    cout << "\nYour To-Do List:" << endl;
+                    cout << "----------------" << endl;
+                    for(int i = 0; i < tasks.size(); i++) {
+                        cout << i+1 << ". " << tasks[i] << endl;
+                    }
+                }
+                break;
+                
+            case 3:
+                if(tasks.empty()) {
+                    cout << "Your to-do list is empty! Nothing to remove." << endl;
+                } else {
+                    cout << "\nCurrent Tasks:" << endl;
+                    for(int i = 0; i < tasks.size(); i++) {
+                        cout << i+1 << ". " << tasks[i] << endl;
+                    }
+                    cout << "Enter the task number to remove: ";
+                    cin >> taskNumber;
+                    
+                    if(taskNumber >= 1 && taskNumber <= tasks.size()) {
+                        cout << "Removing task: " << tasks[taskNumber-1] << endl;
+                        tasks.erase(tasks.begin() + (taskNumber-1));
+                        cout << "Task removed successfully!" << endl;
+                    } else {
+                        cout << "Invalid task number!" << endl;
+                    }
+                }
+                break;
+                
+            case 4:
+                cout << "Exiting the program. Goodbye!" << endl;
+                break;
+                
+            default:
+                cout << "Invalid choice! Please enter a number between 1 and 4." << endl;
+        }
+        
+    } while(choice != 4);
+    
+    return 0;
+}
