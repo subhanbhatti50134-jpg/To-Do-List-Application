@@ -21,5 +21,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # Source file has no extension, so g++ would otherwise treat it as a
+      # linker script. -x c++ forces the language to be inferred correctly.
       - name: Compile Project code
-        run: g++ -Wall -Wextra "Project code" -o todo
+        run: g++ -Wall -Wextra -x c++ "Project code" -o todo
