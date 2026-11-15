@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Compile C++ source with g++
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      # Source file has no extension, so g++ would otherwise treat it as a
+      # linker script. -x c++ forces the language to be inferred correctly.
+      - name: Compile Project code
+        run: g++ -Wall -Wextra -x c++ "Project code" -o todo
