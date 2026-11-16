@@ -1,5 +1,7 @@
 # To-Do List Application (C++)
 
+![GitHub repository card for To-Do-List-Application](docs/images/todo-list.png)
+
 A beginner C++ console application that manages a list of tasks using a vector.
 
 ## What it does
