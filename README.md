@@ -1,5 +1,7 @@
 # To-Do List Application (C++)
 
+[![CI](https://github.com/subhanbhatti50134-jpg/To-Do-List-Application/actions/workflows/ci.yml/badge.svg)](https://github.com/subhanbhatti50134-jpg/To-Do-List-Application/actions/workflows/ci.yml)
+
 ![GitHub repository card for To-Do-List-Application](docs/images/todo-list.png)
 
 A beginner C++ console application that manages a list of tasks using a vector.
